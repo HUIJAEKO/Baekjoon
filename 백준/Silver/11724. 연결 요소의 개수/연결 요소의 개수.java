@@ -17,7 +17,6 @@ public class Main {
         visited = new boolean[N + 1];
         list = new ArrayList<>();
 
-        // 그래프 초기화
         for (int i = 0; i <= N; i++) {
             list.add(new ArrayList<>()); // 각 노드에 대해 ArrayList 초기화
         }
@@ -25,8 +24,8 @@ public class Main {
         for (int i = 1; i <= M; i++) {
             int u = input.nextInt();
             int v = input.nextInt();
-            list.get(u).add(v); // 인접 리스트에 간선 추가
-            list.get(v).add(u); // 무향 그래프이므로 양방향 추가
+            list.get(u).add(v); 
+            list.get(v).add(u); 
         }
 
         int count = 0;
@@ -49,12 +48,11 @@ public class Main {
         while (!stack.isEmpty()) {
             int current = stack.pop();
 
-            // 현재 노드의 이웃 노드 탐색
             for (int i = 0; i < list.get(current).size(); i++) {
                 int neighbor = list.get(current).get(i);
                 if (!visited[neighbor]) {
-                    stack.push(neighbor); // 이웃 노드를 스택에 추가
-                    visited[neighbor] = true; // 이웃 노드를 방문 처리
+                    stack.push(neighbor); 
+                    visited[neighbor] = true; 
                 }
             }
         }
